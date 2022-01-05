@@ -17,3 +17,11 @@ def users_friends(request):
 	'friends': friends
 	}
 	return render(request, "users/users_friends.html", context)
+
+@login_required
+def send_friend_request(request, id):
+	user = get_object_or_404(User, id=id)
+	frequest, created = FriendRequest.objects.get_or_create(
+			from_user=request.user,
+			to_user=user)
+	return HttpResponseRedirect('/users/{}'.format(user.profile.slug))
