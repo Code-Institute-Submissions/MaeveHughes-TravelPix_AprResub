@@ -48,3 +48,4 @@ def accept_friend_request(request, id):
 		request_rev.delete()
 	frequest.delete()
 	return HttpResponseRedirect('/users/{}'.format(request.user.profile.slug))
+

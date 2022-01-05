@@ -5,6 +5,9 @@ from django.utils import timezone
 from django.db.models.signals import post_save
 from django.conf import settings
 from autoslug import AutoSlugField
+from cloudinary.models import CloudinaryField
+
+STATUS = ((0, "Draft"), (1, "Published"))
 
 class Account(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -22,3 +25,28 @@ class NewFriend(models.Model):
 
 	def __str__(self):
 		return "From {}, to {}".format(self.from_user, self.to_user)
+
+class Post(models.Model):
+    title = models.CharField(max_length=250, unique=True)
+    slug = models.SlugField(max_length=250, unique=True)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="blog_posts")
+    featured_image = CloudinaryField('image', default='placeholder')
+    excerpt = models.TextField(blank=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    content = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    likes = models.ManyToManyField(
+        User, related_name='blogpost_like', blank=True)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return self.title
+
+    def number_of_likes(self):
+        return self.likes.count()
+
+
