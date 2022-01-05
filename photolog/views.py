@@ -25,3 +25,26 @@ def send_friend_request(request, id):
 			from_user=request.user,
 			to_user=user)
 	return HttpResponseRedirect('/users/{}'.format(user.profile.slug))
+
+@login_required
+def delete_friend_request(request, id):
+	user = get_object_or_404(User, id=id)
+	frequest = FriendRequest.objects.filter(
+			from_user=request.user,
+			to_user=user).first()
+	frequest.delete()
+	return HttpResponseRedirect('/users/{}'.format(user.profile.slug))
+
+@login_required
+def accept_friend_request(request, id):
+	from_user = get_object_or_404(User, id=id)
+	frequest = FriendRequest.objects.filter(from_user=from_user, to_user=request.user).first()
+	user1 = frequest.to_user
+	user2 = from_user
+	user1.profile.friends.add(user2.profile)
+	user2.profile.friends.add(user1.profile)
+	if(FriendRequest.objects.filter(from_user=request.user, to_user=from_user).first()):
+		request_rev = FriendRequest.objects.filter(from_user=request.user, to_user=from_user).first()
+		request_rev.delete()
+	frequest.delete()
+	return HttpResponseRedirect('/users/{}'.format(request.user.profile.slug))
