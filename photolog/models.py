@@ -8,29 +8,17 @@ from autoslug import AutoSlugField
 
 class Account(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
-	image = models.ImageField(default='#', upload_to='profile_pics')
-	slug = AutoSlugField(max_length=230, unique=True)
-	bio = models.TextField(max_length=230, blank=False)
+	image = models.ImageField(default='default.png', upload_to='profile_pics')
+	slug = AutoSlugField(max_length=200, unique=True)
+	bio = models.CharField(max_length=300, blank=False)
 	friends = models.ManyToManyField("Account", blank=True)
 
 	def __str__(self):
 		return str(self.user)
 
-	def get_absolute_url(self):
-		return "/users/{}".format(self.slug)
-
-def post_save_user_model_receiver(sender, instance, created, *args, **kwargs):
-    if created:
-        try:
-            Account.objects.create(user=instance)
-        except:
-            pass
-
-post_save.connect(post_save_user_model_receiver, sender=settings.AUTH_USER_MODEL)
-
-class AddFriend(models.Model):
-	to_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='to_user', on_delete=models.CASCADE)
+class NewFriend(models.Model):
+	to_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='to', on_delete=models.CASCADE)
 	from_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='from_user', on_delete=models.CASCADE)
 
 	def __str__(self):
-		return "From {}, to {}".format(self.from_user.username, self.to_user.username)
+		return "From {}, to {}".format(self.from_user, self.to_user)
