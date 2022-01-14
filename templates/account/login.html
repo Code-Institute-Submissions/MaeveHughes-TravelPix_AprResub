@@ -9,28 +9,25 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6 mb-3">
-      <hr>
-      <h2>{% trans "Login" %}</h2>
-      <hr>
-      <p>{% blocktrans %}Already have an account? Please log in. If you
-        have not created an account yet, then <a class="link" href="{{ signup_url }}">Register</a> first.{% endblocktrans %}</p>
-  
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6"></div>
-      <form class="login" method="POST" action="{% url 'account_login' %}">
+    <div class="col-lg-5 m-auto">
+      <div class="card mt-5 bg-light">
+        <div class="card-title text-center mt-3">
+          <img src="/media/flying.jpeg" class="flying-image" alt="flying penguin" width="150px" height="150px">
+          <hr>
+          <h2>{% trans "Welcome back!" %}</h2>
+          <hr>
+          <p>{% blocktrans %}Already have an account? Please log in. <br>
+            If you have not created an account yet, then <a class="link" href="{{ signup_url }}">Register</a> first.{% endblocktrans %}</p>
+        </div>
+      <form class="login text-center" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
         {{ form.as_p }}
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button class="primaryAction buy-now-button" type="submit">{% trans "Login" %}</button>
+        <button class="primaryAction buy-now-button text-center btn" type="submit">{% trans "Login" %}</button>
         <hr>
-        <p><a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+        <p><a class="button secondaryAction text-center" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
         </p>
       </form>
     </div>

@@ -1,5 +1,8 @@
 body {
-    background-color: #F9FAFC;
+    background: #79beca;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-height: 100%;
 }
 
 .brand {
@@ -23,10 +26,6 @@ body {
 
 .dark-bg {
     background-color: #445261;
-}
-
-.main-bg {
-    background-color: #F9FAFC;
 }
 
 .card {
@@ -91,10 +90,6 @@ body {
     color: #445261;
 }
 
-.post-link:hover,
-.page-link {
-    color: #E84610;
-}
 
 .post-title {
     margin-top: 20%;
@@ -106,37 +101,38 @@ body {
     color: lightgray;
 }
 
-.btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
-}
 
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
-}
 
 .link {
     color: #23BBBB;
     text-decoration: none;
 }
 
-.link:hover,
-.link:active {
-    color: #445261;
-    text-decoration: underline;
+
+.btn { 
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color:#3b444b;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px #999;
 }
 
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
+.btn:hover {
+    background-color: #606060;
+    color: #fff;
 }
 
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
+.sign-up-image {
+    border-radius: 50%;
+}
+
+.flying-image {
+    border-radius: 50%;
 }
