@@ -13,7 +13,7 @@
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://www.oakparkmedicalcentre.com/images/Travel_Vac.jpg" width="100%">
+                <img src=" {{ post.featured_image.url }}" width="100%">
                 {% else %}
                 <img src=" {{ post.featured_image.url }}" width="100%">
                 {% endif %}
@@ -49,12 +49,7 @@
                             {% endif %}
                             <span class="text-secondary">{{ post.number_of_likes }} </span>
                         </strong>
-                        <div class="col-1">
-                            {% with comments.count as total_comments %}
-                            <span class="text-secondary"><i class="far fa-comments btn"></i>
-                                <!-- Our total_comments variable goes before the closing strong tag -->
-                                {{ total_comments }}</span>
-                            {% endwith %}
+
                         </div>
                     </div>
             </div>
@@ -66,7 +61,21 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
+        <div class="col card mb-4  mt-3 left  top offset-md-1">
+            {% if user.is_authenticated %}
+
+            <h3>Leave a comment:</h3>
+            <p>Posting as: {{ user.username }}</p>
+            <form method="post" style="margin-top: 1.3em;">
+                {{ comment_form | crispy }}
+                {% csrf_token %}
+                <br>
+                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+            </form>
+            {% endif %}
+            <br>
+            <hr>
+            <br>
             <h3>Comments:</h3>
             <div class="card-body">
                 <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
@@ -95,16 +104,7 @@
                     Your comment is awaiting approval
                 </div>
                 {% else %}
-                {% if user.is_authenticated %}
 
-                <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
-                {% endif %}
                 {% endif %}
             </div>
         </div>

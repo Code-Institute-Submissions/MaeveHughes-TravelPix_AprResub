@@ -5,8 +5,8 @@
 <div class="container-fluid">
     <div class="row">
 
-        <!-- Travek Posts Column -->
-        <div class="offset-md-4">
+        <!-- Blog Entries Column -->
+        <div class="col-12 mt-3 left">
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
@@ -14,10 +14,9 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top"
-                                    src="https://www.oakparkmedicalcentre.com/images/Travel_Vac.jpg">
+                                <img class="card-img-top" src="/media/travel.jpeg">
                                 {% else %}
-                                <img class="card-img-top" src="https://www.oakparkmedicalcentre.com/images/Travel_Vac.jpg">
+                                <img class="card-img-top" src=" {{ post.featured_image.url }}">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Post by: {{ post.author }}</p>
@@ -27,13 +26,13 @@
                                 <h2 class="card-title">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
-                            <hr />
+                            <hr/>
                              <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-thumbs-up"></i>
-                                {{ post.number_of_likes }}</p> 
+                                {{ post.number_of_likes }} </p> 
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:2 %}
+                {% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
                 {% endif %}
