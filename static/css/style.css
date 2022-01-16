@@ -1,8 +1,30 @@
 body {
-    background: #79beca;
+    background: #efebec;
     background-size: 100%;
     background-repeat: no-repeat;
     min-height: 100%;
+}
+
+.navbar-custom {
+    background-color: #153184;
+    color: peachpuff;
+}
+
+.plane {
+    border-radius: 50%;
+}
+
+.menu-items {
+    color: peachpuff;
+}
+
+.footer {
+    background-color: #153184;
+    color: peachpuff;
+}
+
+.socials {
+    color: peachpuff;
 }
 
 .brand {
@@ -118,10 +140,11 @@ body {
     text-decoration: none;
     outline: none;
     color: #fff;
-    background-color:#3b444b;
+    background-color: #153184;
     border: none;
     border-radius: 15px;
     box-shadow: 0 5px #999;
+    color: #efebec;
 }
 
 .btn:hover {
@@ -136,3 +159,8 @@ body {
 .flying-image {
     border-radius: 50%;
 }
+
+.crying-image {
+    border-radius: 50%;
+}
+

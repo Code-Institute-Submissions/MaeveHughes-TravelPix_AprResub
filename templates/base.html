@@ -24,34 +24,36 @@
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container-fluid">
+    <nav class="navbar navbar navbar-expand-lg navbar-custom" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand container-fluid">
+          <a class="navbar-item" href="">
+            <img src="{{MEDIA_URL}}plane.jpeg" width="56" height="56" class="plane"> 
+          </a>
+
             <header>Travel|Pix</header>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+        
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                    </li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                    </li>
-                    {% endif %}
-                </ul>
-                <span class="navbar-text text-muted">
-                    #
-                </span>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 offset-md-10">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}"><i class="fas fa-home menu-items"></i></a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link menu-items" href="{% url 'account_logout' %}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link menu-items" href="{% url 'account_signup' %}">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-items" href="{% url 'account_login' %}">Login</a>
+                        </li>
+                        {% endif %}
+                    </ul>
             </div>
         </div>
     </nav>
@@ -75,12 +77,15 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 dark-bg">
-        <p class="m-0 text-center text-white">#</p>
-        <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
-            <i class="fab fa-twitter-square ms-3"></i>
-            <i class="fab fa-instagram-square ms-3"></i>
-            <i class="fab fa-youtube-square ms-3"></i></p>
+    <footer class="footer mt-auto py-3">
+        <div class="text-center p-3">
+            © 2021 Copyright: Travel|Pix
+            <p class="m-0 offset-md-10"></p>
+            <p class="m-0 offset-md-10">Follow us: <a href="https://www.facebook.com" target="_blank" rel="noopener"
+                aria-label="Visit our Facebook page (opens in a new tab"><i class="fab fa-facebook socials"></i>
+                <a href="https://www.twitter.com" target="_blank" rel="noopener"
+                aria-label="Visit our Twitter page (opens in a new tab"><i class="fab fa-twitter-square socials"></i></a>
+        </div>
      </footer>
     <script>
         setTimeout(function () {
