@@ -6,7 +6,7 @@
     <div class="row">
 
         <!-- Travek Posts Column -->
-        <div class="col-12 mt-3 left">
+        <div class="offset-md-4">
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
@@ -15,7 +15,7 @@
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/uk/advisor/wp-content/uploads/2021/03/worldwide-travel-insurance.jpg>">
+                                    src="https://www.oakparkmedicalcentre.com/images/Travel_Vac.jpg">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}">
                                 {% endif %}
