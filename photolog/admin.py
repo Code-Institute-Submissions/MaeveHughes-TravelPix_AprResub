@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Account, Friend
-from .models import Post, Comment
+from .models import Post, Comment, Account, Friend
 from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Post)
