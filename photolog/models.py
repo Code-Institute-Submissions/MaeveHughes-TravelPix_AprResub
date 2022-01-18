@@ -40,14 +40,19 @@ class Post(models.Model):
     likes = models.ManyToManyField(
         User, related_name='blogpost_like', blank=True)
 
-    class Meta:
-        ordering = ["-created_on"]
-
     def __str__(self):
         return self.title + ' | ' + str(self.author)
 
+    def get_absolute_url(self):
+        return reverse('home')
+
+    class Meta:
+        ordering = ["-created_on"]
+
     def number_of_likes(self):
         return self.likes.count()
+
+    
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
