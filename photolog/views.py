@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, User, Account
 from .forms import CommentForm
 from django.urls import reverse_lazy
 

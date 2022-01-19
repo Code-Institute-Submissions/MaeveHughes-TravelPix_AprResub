@@ -9,6 +9,7 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
+
 class Account(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	image = models.ImageField(default='default.png', upload_to='profile_pics')
@@ -17,7 +18,8 @@ class Account(models.Model):
 	friends = models.ManyToManyField("Account", blank=True)
 
 	def __str__(self):
-		return str(self.user)
+		return str(self.user.username)
+    
 
 class Friend(models.Model):
 	to_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='to', on_delete=models.CASCADE)
