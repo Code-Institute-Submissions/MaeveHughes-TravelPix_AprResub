@@ -31,7 +31,7 @@
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">
-                    {{ post.content | safe }}
+                    {{ post.content | safe }} 
                 </p>
 
                     <div class="col-1">
@@ -44,19 +44,26 @@
                                     <i class="fas fa-thumbs-up"></i></button>
                                 {% else %}
                                 <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn">
-                                    <i class="far fa-thumbs-up"></i></button>
+                                    <i class="far fa-thumbs-up"></i></button> 
                                 {% endif %}
                             </form>
                             <span class="text-secondary"></span>
-                            {% endif %}
                             <span class="text-secondary">{{ post.number_of_likes }} </span>
+                            {% endif %}
                         </strong>
-
                         </div>
                     </div>
             </div>
         </div>
     </div>
+    <div class="offset-md-9">
+        {% if user.is_authenticated %}
+        <a href="{% url 'edit_post' post.pk %}" class="btn btn-">Edit Post</a>
+        <a href="{% url 'delete_post' post.pk %}" class="btn btn-">Delete Post</a>
+        {% endif %}
+        
+    </div>
+<br>
     <div class="row">
         <div class="col">
             <hr>
