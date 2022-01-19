@@ -3,6 +3,7 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+{% if user.id == post.author.id %}
 <div class="container">
     <div class="row">
       <div class="col-lg-5 m-auto">
@@ -33,6 +34,11 @@
 </div>
 
 <br><br>
-{% endif %}
+
+{% else %}
 <strong>Uh oh! Something whent wrong..</strong>
+{% endif %}
+{% else %}
+<strong>Uh oh! Something whent wrong..</strong>
+{% endif %}
 {% endblock %}
