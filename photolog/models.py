@@ -8,27 +8,25 @@ from autoslug import AutoSlugField
 from cloudinary.models import CloudinaryField
 from ckeditor.fields  import RichTextField
 
-
 STATUS = ((0, "Draft"), (1, "Published"))
 
-
 class Account(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
-	image = models.ImageField(default='default.png', upload_to='profile_pics')
-	slug = AutoSlugField(max_length=200, unique=True)
-	bio = models.CharField(max_length=300, blank=False)
-	friends = models.ManyToManyField("Account", blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(default='default.png', upload_to='profile_pics')
+    slug = AutoSlugField(max_length=200, unique=True)
+    bio = models.CharField(max_length=300, blank=False)
+    friends = models.ManyToManyField("Account", blank=True)
 
-	def __str__(self):
-		return str(self.user.username)
+    def __str__(self):
+        return str(self.user.username)
     
 
 class Friend(models.Model):
-	to_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='to', on_delete=models.CASCADE)
-	from_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='from_user', on_delete=models.CASCADE)
+    to_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='to', on_delete=models.CASCADE)
+    from_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='from_user', on_delete=models.CASCADE)
 
-	def __str__(self):
-		return "From {}, to {}".format(self.from_user, self.to_user)
+    def __str__(self):
+        return "From {}, to {}".format(self.from_user, self.to_user)
 
 class Post(models.Model):
     title = models.CharField(max_length=250)
