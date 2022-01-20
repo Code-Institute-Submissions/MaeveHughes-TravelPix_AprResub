@@ -1,11 +1,10 @@
 {% extends "base.html" %}
-
 {% block content %}
-
 <div class="container-fluid">
     <div class="row">
-
-        <!-- Blog Entries Column -->
+        <!-- User posts laid out in rows of three. Users can see who posted the images, when they posted and how
+        many likes they have gotten. Users can click into a post to see the content however they will have to
+    l   log in if they would like to like or comment.-->
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for post in post_list %}
@@ -27,7 +26,7 @@
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
                             <hr/>
-                             <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-thumbs-up"></i>
+                            <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-thumbs-up"></i>
                                 {{ post.number_of_likes }} </p> 
                         </div>
                     </div>
@@ -37,10 +36,12 @@
             <div class="row">
                 {% endif %}
                 {% endfor %}
-
             </div>
         </div>
     </div>
+</div>
+<!--- If there is more than 6 posts in total the oldest post will move onto the next page. Users will be able to
+navigate by pressing on the NEXT and PREV buttons.-->
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
@@ -49,7 +50,6 @@
             {% endif %}
             {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}" class=" btn page-link"> NEXT &raquo;</a></li>
-
             {% endif %}
         </ul>
     </nav>

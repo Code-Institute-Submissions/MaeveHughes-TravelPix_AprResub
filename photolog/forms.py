@@ -1,6 +1,7 @@
-from .models import Comment, Account
+from .models import Comment, Account, Post
 from django import forms
 from django.contrib.auth.models import User
+from django.forms import ModelForm      
 
 
 class CommentForm(forms.ModelForm):
@@ -34,3 +35,8 @@ class Meta:
             user.save()
 
         return user
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = ('title', 'content', 'featured_image')

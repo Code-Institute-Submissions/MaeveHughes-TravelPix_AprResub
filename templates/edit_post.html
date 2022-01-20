@@ -1,35 +1,36 @@
 {% extends "base.html" %}
+{% load cloudinary %}
+{% cloudinary photo.image format="jpg" width=120 height=80 crop="fill" %}
 {% block title %}Travel|Pix - Edit Post{% endblock %}
 {% block content %}
+<!--- Only users who are logged and created a post can edit a post-->
 {% if user.is_authenticated %}
 {% if user.id == post.author.id %}
 <div class="container">
     <div class="row">
-      <div class="col-lg-5 m-auto">
-        <div class="card mt-5 bg-light">
-          <div class="card-title text-center mt-3">
-                <h2> Edit Post <i class="far fa-edit"></i> </h2>
-                <hr>
-                <table class="offset-md-1">
-                <form method="Post">
-                    {% csrf_token %}
-                    {{form.as_table}}
+        <div class="col-lg-5 m-auto">
+            <div class="card mt-5 bg-light">
+                <div class="card-title text-center mt-3">
+                    <h2> Edit Post <i class="far fa-edit"></i> </h2>
+                    <hr>
+                    <table class="offset-md-1">
+                        <form method="Post">
+                            {% csrf_token %}
+                            {{form.as_table}}
+                        </form>
+                    </table>
                     <br>
-                </table>
-                <br>
-                <div class="offset-md-1">
-                <button class="btn" style="margin-right:20px">Update</button> 
-                <a href="{% url 'home' %}" class="btn btn-">Cancel</a>
+                    <div class="offset-md-1">
+                        <button class="btn" style="margin-right:20px">Update</button> 
+                        <a href="{% url 'home' %}" class="btn btn-">Cancel</a>
+                    </div>
                 </div>
-                <br>
-            </form>
             </div>
         </div>
     </div>
 </div>
-</div>
-
 <br><br>
+<!--- Errors show if the user is not logged in and did not create the post -->
 {% else %}
 <strong>Uh oh! Something whent wrong..</strong>
 {% endif %}
