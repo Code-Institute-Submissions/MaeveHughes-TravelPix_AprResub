@@ -2,120 +2,121 @@
 {% block title %}Travel|Pix - {{ post.title }}{% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
-<!--- The image title will appear on the upper left hand side of the screen with a grey background. The author
-and the date and time of the post wad created will be positioned beneath the title. A snippet of the image will 
-be reflected on the right had side of this creating a loveky header for the page. -->
+
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text post-details">
+                <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title">{{ post.title }}</h1>
+                <!-- Post author goes before the | the post's created date goes after -->
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
+                <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                    <img src="https://www.oakparkmedicalcentre.com/images/Travel_Vac.jpg" width="100%">
+                <img src="https://www.oakparkmedicalcentre.com/images/Travel_Vac.jpg" width="100%">
                 {% else %}
-                    <img src=" {{ post.featured_image.url }}" width="100%">
+                <img src=" {{ post.featured_image.url }}" width="100%">
                 {% endif %}
             </div>
         </div>
     </div>
 </div>
-<!--- Users will be able to see the write relating to the image -->
+
 <div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
+                <!-- The post content goes inside the card-text. -->
+                <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">
-                    {{ post.content | safe }} 
+                    {{ post.content | safe }}
                 </p>
-                <div class="col-1">
-                    <!---- Once users are logged in they will be able to like and unlike the post. 
-                    Users will also be able to see the number of likes on the post -->
-                    <strong>
-                        {% if user.is_authenticated %}
+
+                    <div class="col-1">
+                        <strong>
+                            {% if user.is_authenticated %}
                             <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
-                                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn">
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn">
                                     <i class="fas fa-thumbs-up"></i></button>
                                 {% else %}
-                                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn">
-                                    <i class="far fa-thumbs-up"></i></button> 
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn">
+                                    <i class="far fa-thumbs-up"></i></button>
                                 {% endif %}
                             </form>
                             <span class="text-secondary"></span>
+                            {% endif %}
                             <span class="text-secondary">{{ post.number_of_likes }} </span>
-                                {% endif %}
-                    </strong>
-                </div>
+                        </strong>
+
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
-</div>
-<!--- Once users are logged in they will be able to edit and delete their own posts.-->
-<div class="offset-md-9">
-    {% if user.is_authenticated %}
-    {% if user.id == post.author.id %}
-        <a href="{% url 'edit_post' post.pk %}" class="btn btn-">Edit Post</a>
-        <a href="{% url 'delete_post' post.pk %}" class="btn btn-">Delete Post</a>
-    {% endif %}
-    {% endif %}
-</div>
-
-<br>
-<hr>
-<!--- Users who are logged in can leave a comment on any post-->
-<div class="row">
-    <div class="col card mb-4  mt-3 left  top offset-md-1">
-        {% if user.is_authenticated %}
-        <h3>Leave a comment:</h3>
-        <p>Posting as: {{ user.username }}</p>
-        <form method="post" style="margin-top: 1.3em;">
-            {{ comment_form | crispy }}
-            {% csrf_token %}
-            <br>
-            <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-        </form>
-        {% endif %}
-        <br>
-        <hr>
-        <br>
-        <!--- Users are able to view the comments, who wrote the comment and when -->
-        <h3>Comments:</h3>
-        <div class="card-body">
-            {% for comment in comments %}
-            <div class="comments" style="padding: 10px;">
-                <p class="font-weight-bold">
-                    {{ comment.name }}
-                    <span class=" text-muted font-weight-normal">
-                        {{ comment.created_on }}
-                    </span> wrote:
-                </p>
-                {{ comment.body | linebreaks }}
-            </div>
-            {% endfor %}
+    <div class="row">
+        <div class="col">
+            <hr>
         </div>
     </div>
-    <!--- If a logged in user writes a comment, they will be notified that their comment is sent 
-    to the admin for approval -->
-    <div class="col-md-4 card mb-4  mt-3 ">
-        <div class="card-body">
-            {% if commented %}
-            <div class="alert alert-success" role="alert">
-                Your comment is awaiting approval
-            </div>
-            {% else %}
+    <div class="row">
+        <div class="col card mb-4  mt-3 left  top offset-md-1">
+            {% if user.is_authenticated %}
 
+            <h3>Leave a comment:</h3>
+            <p>Posting as: {{ user.username }}</p>
+            <form method="post" style="margin-top: 1.3em;">
+                {{ comment_form | crispy }}
+                {% csrf_token %}
+                <br>
+                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+            </form>
             {% endif %}
+            <br>
+            <hr>
+            <br>
+            <h3>Comments:</h3>
+            <div class="card-body">
+                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                {% for comment in comments %}
+                <div class="comments" style="padding: 10px;">
+                    <p class="font-weight-bold">
+                        <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
+                        {{ comment.name }}
+                        <span class=" text-muted font-weight-normal">
+                            <!-- The comment's created date goes here -->
+                            {{ comment.created_on }}
+                        </span> wrote:
+                    </p>
+                    <!-- The body of the comment goes before the | -->
+                    {{ comment.body | linebreaks }}
+                </div>
+                <!-- Our for loop ends here -->
+                {% endfor %}
+            </div>
         </div>
-    </div>
+        <div class="col-md-4 card mb-4  mt-3 ">
+            <div class="card-body">
+                <!-- For later -->
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment is awaiting approval
+                </div>
+                {% else %}
+
+                {% endif %}
+            </div>
+        </div>
 </div>
-<!--- Users can press the back button to return to the home page -->
+
 <br/><br/>
 <div class="offset-md-1">
     <a href="{% url 'home' %}" class="btn btn-">Back</a>
 </div>
+
 <br/><br/>
+
 {% endblock content %}

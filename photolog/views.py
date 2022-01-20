@@ -2,20 +2,18 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from .models import Post, User, Account
 from .forms import CommentForm
 from django.urls import reverse_lazy
 from django import forms
 from cloudinary.forms import cl_init_js_callbacks      
 
-
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "index.html"
     paginate_by = 6
-
 
 class PostDetail(View):
 
@@ -81,7 +79,6 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-
 class AddPostView(CreateView):
     model = Post
     template_name = 'add_post.html'
@@ -95,4 +92,4 @@ class UpdatePostView(UpdateView):
 class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
-    success_url = reverse_lazy('home')
+
