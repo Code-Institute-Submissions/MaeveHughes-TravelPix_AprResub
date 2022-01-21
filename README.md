@@ -164,3 +164,34 @@ There are five colours in the color palette:
 
 I feel the colours complement each other very well, and I choose those colours after testing a number of palettes while making sure the colour palette would not clash with users posts.
 
+### Typography
+The Lato font is the main font used throughout the whole website with Sans Serif as the fallback font in case for any reason the Lato font cannot be imported into the website correctly. This font is from the Google fonts library.
+
+# Features
+The website has seventeen distinct features, and they are described below
+What is important to detail is what pages are accessible by the three types of users
+1. A user not logged into the site
+2. A registered user logged into the site
+3. An admin user (site owner)
+The navigation buttons update depending on whether a user is logged in or not, and whether that user is the admin:
+
+ Nav Link              |Not logged in  |Logged in as regular user|Logged in as admin
+:-------------         |:------------- |:----------------|:------------- |
+Home     |&#9989;        |&#9989;          |&#9989; |
+Posts           |&#9989;        |&#9989;          |&#9989; |
+Posts Details           |&#9989;        |&#9989;          |&#9989; |
+Post Comments          |&#9989;        |&#9989;          |&#9989; |
+Add a post     |&#10060;       |&#9989;         |&#9989; |
+Edit a post     |&#10060;       |&#9989;         |&#9989; |
+Delete a post     |&#10060;       |&#9989;         |&#9989; |
+Like a post     |&#10060;       |&#9989;         |&#9989; |
+Unlike a post     |&#10060;       |&#9989;        |&#9989; |
+Log out               |&#10060;       |&#9989;          |&#9989; |
+Register               |&#9989;        |&#10060;         |&#10060; |
+Log in               |&#9989;        |&#10060;         |&#10060; |
+Comment on a post                |&#10060;        |&#9989;         |&#9989; |
+Approve a comment            |&#10060;        |&#10060;        |&#9989; |
+Delete a comment |&#10060;        |&#10060;          |&#9989; |
+Edit a comment |&#10060;        |&#10060;          |&#9989; |
+Delete a post |&#10060;        |&#9989;          |&#9989; |
+
