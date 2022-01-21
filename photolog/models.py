@@ -20,7 +20,6 @@ class Account(models.Model):
     def __str__(self):
         return str(self.user.username)
     
-
 class Friend(models.Model):
     to_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='to', on_delete=models.CASCADE)
     from_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='from_user', on_delete=models.CASCADE)
@@ -54,8 +53,6 @@ class Post(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
-
-    
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
