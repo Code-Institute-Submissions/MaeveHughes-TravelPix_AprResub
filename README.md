@@ -133,7 +133,7 @@ are defined
 
 ## Skeleton
 ### Wireframes
-- Wireframes for the website were developed in Balsamiq and are linked below for Desktop and Mobile devices.
+- Wireframes for the website were developed in moqups.com and are linked below for Desktop and Mobile devices.
 - The wireframes are stored in GitHub in the png format and are available at the links below(Desktop Mobile wireframes)
 
 #### Desktop 
@@ -145,5 +145,22 @@ are defined
 - [Register](https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-21%20at%2017.07.12.png)
 
 #### Mobile
+- [Index](https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-21%20at%2017.25.16.png)
+- [Post Detail](https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-21%20at%2019.11.32.png)
+- [Login](https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-20%20at%2017.28.53.png)
+- [Logout](https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-20%20at%2017.31.53.png)
+- [Add Post](https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-20%20at%2017.35.30.png)
+- [Register](https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-21%20at%2017.07.12.png)
 
+## Surface
+### Color Palette
+I have gone for a simple and minimal design for the website, with predominately blue and peach colours on all pages.
+There are five colours in the color palette:
+- efebec - Very light peach colour for the background.
+- 153184 - Royal blue for the navbar, footer and buttons.
+- peachpuff - Peach for text on the blue background.
+- fff - White for the form backgrounds.
+- 445261 - Black for the text on posts and forms.
+
+I feel the colours complement each other very well, and I choose those colours after testing a number of palettes while making sure the colour palette would not clash with users posts.
 
