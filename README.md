@@ -328,7 +328,12 @@ Number | Update
 - Font Awesome (https://fontawesome.com/)
 
 # Testing
-The testing information and results for this project are documented in
+The testing information and results for this project were done manually. 
+- Buttons are working.
+- Forms can be filled out.
+- Social media links are working.
+- Posts open once you click on the title.
+- Notifcations are working for when users login, logout, register and when their comment is sent for approval.
 
 # Credits
 
