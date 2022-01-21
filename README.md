@@ -131,4 +131,19 @@ are defined
 - User Story 13.15: As an admin user I can add, view and change a friend. 
 - User Story 13.15: As an admin user I can add, view and change social accounts. 
 
+## Skeleton
+### Wireframes
+- Wireframes for the website were developed in Balsamiq and are linked below for Desktop and Mobile devices.
+- The wireframes are stored in GitHub in the png format and are available at the links below(Desktop Mobile wireframes)
+
+#### Desktop 
+- [Index](https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-19%20at%2017.26.21.png)
+- [Post Detail](https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-20%20at%2017.25.37.png)
+- [Login](https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-20%20at%2017.28.53.png)
+- [Logout](https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-20%20at%2017.31.53.png)
+- [Add Post](https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-20%20at%2017.35.30.png)
+- [Register](https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-21%20at%2017.07.12.png)
+
+#### Mobile
+
 
