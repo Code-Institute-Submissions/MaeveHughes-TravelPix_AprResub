@@ -9,12 +9,14 @@ from django.urls import reverse_lazy
 from django import forms
 from cloudinary.forms import cl_init_js_callbacks      
 
+#home page
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "index.html"
     paginate_by = 6
 
+#post detail page
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
@@ -67,7 +69,7 @@ class PostDetail(View):
                 "liked": liked
             },
         )
-
+#post likes
 class PostLike(View):
     
     def post(self, request, slug, *args, **kwargs):
@@ -79,16 +81,19 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+#Adding a post
 class AddPostView(CreateView):
     model = Post
     template_name = 'add_post.html'
     fields = '__all__'
 
+#editing a post
 class UpdatePostView(UpdateView):
     model = Post
     template_name = 'edit_post.html'
     fields = ('title', 'content', 'featured_image')
 
+#delete a post
 class DeletePostView(DeleteView):
     model = Post
     template_name = 'delete_post.html'
