@@ -6,15 +6,40 @@ body {
     font: Lato, sans-serif;
 }
 
+/* Navbar / Heading on all pages */
 .navbar-custom {
     background-color: #153184;
     color: peachpuff;
 }
-
+/* Images*/
 .plane {
     border-radius: 50%;
 }
 
+.sign-up-image {
+    border-radius: 50%;
+}
+
+.flying-image {
+    border-radius: 50%;
+}
+
+.crying-image {
+    border-radius: 50%;
+}
+.sign-up-image {
+    border-radius: 50%;
+}
+
+.flying-image {
+    border-radius: 50%;
+}
+
+.crying-image {
+    border-radius: 50%;
+}
+
+/* Base html */
 .menu-items {
     color: peachpuff;
 }
@@ -23,6 +48,7 @@ body {
     color: peachpuff;
 }
 
+/* Footer */
 .footer {
     background-color: #153184;
     color: peachpuff;
@@ -32,6 +58,7 @@ body {
     color: peachpuff;
 }
 
+/* Bootstrap */
 .light-bg {
     background-color: #fff;
 }
@@ -39,8 +66,6 @@ body {
 .dark-bg {
     background-color: #445261;
 }
-
-
 
 .masthead {
     margin-top: 10px;
@@ -81,7 +106,6 @@ body {
     color: #445261;
 }
 
-
 .post-title {
     margin-top: 20%;
     margin-left: 5%;
@@ -92,7 +116,7 @@ body {
     color: lightgray;
 }
 
-
+/* Buttons */
 .btn { 
     display: inline-block;
     padding: 12px 20px;
@@ -114,18 +138,7 @@ body {
     color: #fff;
 }
 
-.sign-up-image {
-    border-radius: 50%;
-}
-
-.flying-image {
-    border-radius: 50%;
-}
-
-.crying-image {
-    border-radius: 50%;
-}
-
+/* Post Detail html */
 .post-details {
     color: #efebec;
 }
