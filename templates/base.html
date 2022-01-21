@@ -21,15 +21,12 @@
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
-
-    <!-- Navigation -->
-
+    <!--- Navigation -->
     <nav class="navbar navbar navbar-expand-lg navbar-custom" role="navigation" aria-label="main navigation">
         <div class="navbar-brand container-fluid">
-          <a class="navbar-item" href="{% url 'home' %}">
-            <img src="{{MEDIA_URL}}plane.jpeg" width="56" height="56" class="plane">
-          </a>
-
+            <a class="navbar-item" href="{% url 'home' %}">
+                <img src="{{MEDIA_URL}}plane.jpeg" width="56" height="56" class="plane">
+            </a>
             <header>
                 <a class="nav-link menu-items" href="{% url 'home' %}">Travel|Pix </a>
             </header>
@@ -37,7 +34,6 @@
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-        
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 offset-md-10">
                         <li class="nav-item">
@@ -47,11 +43,9 @@
                         <li class="nav-item">
                             <a class="nav-link menu-items" href="{% url 'add_post' %}"><i class="far fa-plus-square"></i></a>
                         </li>
-                        
                         <li class="nav-item">
                             <a class="nav-link menu-items" href="{% url 'account_logout' %}">Logout</a>
                         </li>
-
                         {% else %}
                         <li class="nav-item">
                             <a class="nav-link menu-items" href="{% url 'account_signup' %}">Register</a>
@@ -59,60 +53,47 @@
                         <li class="nav-item">
                             <a class="nav-link menu-items" href="{% url 'account_login' %}">Login</a>
                         </li>
-                        <!---<li class="nav-item">
-                            <div class="dropdown nav-link menu-items">
-                                <button class="settings btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fas fa-user-cog menu-items"></i>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Change password</a>
-                                    <a class="dropdown-item" href="#">Contact</a>
-                                    <a class="dropdown-item" href="#">Report an issue</a>
-                                  </div>
-                                </div>
-                        </li>--->
                         {% endif %}
                     </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-                {% endfor %}
+            </div>
+        </nav>
+        <!--- Users are alerted if they register, login and log out -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    {% for message in messages %}
+                    <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                        {{ message | safe }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    </div>
-
-    <main class="flex-shrink-0 main-bg">
-        {% block content %}
-        <!-- Content Goes here -->
-        {% endblock content %}
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer mt-auto py-3">
-        <div class="text-center p-3">
-            © 2021 Copyright: Travel|Pix
-            <p class="m-0 offset-md-10"></p>
-            <p class="m-0 offset-md-10">Follow us: <a href="https://www.facebook.com" target="_blank" rel="noopener"
-                aria-label="Visit our Facebook page (opens in a new tab"><i class="fab fa-facebook socials"></i>
-                <a href="https://www.twitter.com" target="_blank" rel="noopener"
-                aria-label="Visit our Twitter page (opens in a new tab"><i class="fab fa-twitter-square socials"></i></a>
-        </div>
-     </footer>
-    <script>
-        setTimeout(function () {
-            let messages = document.getElementById('msg');
-            let alert = new bootstrap.Alert(messages);
-            alert.close();
-        }, 3000);
-    </script>
+        <main class="flex-shrink-0 main-bg">
+            {% block content %}
+            {% endblock content %}
+        </main>
+        <!--- Footer -->
+        <footer class="footer mt-auto py-3">
+            <div class="text-center p-3">
+                © 2021 Copyright: Travel|Pix
+                <p class="m-0 offset-md-10"></p>
+                <p class="m-0 offset-md-10">Follow us: <a href="https://www.facebook.com" target="_blank" rel="noopener"
+                    aria-label="Visit our Facebook page (opens in a new tab"><i class="fab fa-facebook socials"></i>
+                    <a href="https://www.twitter.com" target="_blank" rel="noopener"
+                    aria-label="Visit our Twitter page (opens in a new tab"><i class="fab fa-twitter-square socials"></i></a>
+                </div>
+            </footer>
+            <!--- Javascript timer for the alert messages. Alert messages are displayed once a user registers, logs in or logs out.
+            The message will disaqppear after 3 seconds unless the user dismiss it before the 3 second time finishes -->
+            <script>
+            setTimeout(function () {
+                let messages = document.getElementById('msg');
+                let alert = new bootstrap.Alert(messages);
+                alert.close();
+            }, 3000);
+            </script>
 </body>
-
 </html>
