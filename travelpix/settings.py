@@ -98,7 +98,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'travelpix.wsgi.application'
+WSGI_APPLICATION = "travelpix.wsgi.application"
 
 
 # Database
