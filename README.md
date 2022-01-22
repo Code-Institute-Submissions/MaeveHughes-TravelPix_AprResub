@@ -363,6 +363,10 @@ Register: https://www.google.com/search?q=sign+up+image&sxsrf=AOaemvKptXO-bzfGji
 6.https://www.google.com/search?q=lanzarote+travel&tbm=isch&ved=2ahUKEwi_zdjR7MP1AhXLbMAKHcmPBkAQ2-cCegQIABAA&oq=lanzarote+travel&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgQIABAYMgQIABAYMgQIABAYMgQIABAYMgQIABAYMgQIABAYMgQIABAYMgQIABAYOgcIIxDvAxAnUPECWPECYIwOaABwAHgAgAE5iAFpkgEBMpgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=tS3rYf-eHMvZgQbJn5qABA&bih=789&biw=1440#imgrc=MjywFhZlR6PS7M
 7.https://www.google.com/search?q=edinburgh+castle+travel&tbm=isch&ved=2ahUKEwii9P3T7MP1AhVbM8AKHczBBxEQ2-cCegQIABAA&oq=edinburgh+castle+travel&gs_lcp=CgNpbWcQAzIECAAQGDoHCCMQ7wMQJzoFCAAQgAQ6BggAEAcQHjoICAAQCBAHEB46BggAEAgQHlDsBljKMmCWNGgBcAB4AIABPYgBkQeSAQIxOJgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=ui3rYaKvENvmgAbMg5-IAQ&bih=789&biw=1440#imgrc=bMOPxjeX2B0NjM
 
+# Bugs
+- Images on the deployed site are not loading. My sourse path is correct. I tried to use {{ MEDIA_URL }} path but this also did not work.
+
+
 # Acknowledgements
 
 -   My Mentor for continuous helpful feedback and assistance.
