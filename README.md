@@ -2,7 +2,7 @@
 <br>
 <p> <strong> A social media site used for interacting with people who share a common interest in looking at images from around the world </strong> </p>
 
-[View the live project here.](website link/)
+[View the live project here.](https://travelpix.herokuapp.com/)
 
 Home Page Image - [View]( https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-19%20at%2016.09.37.png)
 
