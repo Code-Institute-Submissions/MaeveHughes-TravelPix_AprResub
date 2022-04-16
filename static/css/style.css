@@ -142,3 +142,8 @@ body {
 .post-details {
     color: #efebec;
 }
+/* Making burger menu visible on the blue background */
+@media (max-width:629px) {
+.navbar-collapse {
+    color:peachpuff;
+}
