@@ -88,7 +88,7 @@ class PostDetail(View):
 # post likes
 class PostLike(View):
     """
-    Likes on a recipe
+    Likes on a post
     """
     def post(self, request, slug, *args, **kwargs):
         """
@@ -123,7 +123,7 @@ class UpdatePostView(UpdateView):
 
 # delete a post
 class DeletePostView(DeleteView):
-    """Deletes recipe"""
+    """Deletes post"""
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
