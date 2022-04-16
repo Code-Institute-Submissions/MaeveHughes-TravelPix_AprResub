@@ -13,9 +13,9 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="/media/travel.jpeg">
+                                <img class="card-img-top" src="/media/travel.jpeg" alt="cases on the world">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}">
+                                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="feautured image">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Post by: {{ post.author }}</p>
