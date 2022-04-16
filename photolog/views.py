@@ -1,25 +1,37 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
+"""Views"""
+
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
-from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from .models import Post, User, Account
-from .forms import CommentForm
 from django.urls import reverse_lazy
-from django import forms
-from cloudinary.forms import cl_init_js_callbacks      
+from .forms import CommentForm
+from .models import Post
 
-#home page
+
+# pylint: disable=no-member
+# pylint: disable=unused-argument
+
+# home page
 class PostList(generic.ListView):
+    """
+    This class creates the post list
+    """
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "index.html"
     paginate_by = 6
 
-#post detail page
-class PostDetail(View):
 
+# post detail page
+class PostDetail(View):
+    """
+    This creates the post view
+    """
     def get(self, request, slug, *args, **kwargs):
+        """
+        Displays post details in the view
+        """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -38,9 +50,11 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
-    
-    def post(self, request, slug, *args, **kwargs):
 
+    def post(self, request, slug, *args, **kwargs):
+        """
+        Submits form content to the database
+        """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -69,10 +83,17 @@ class PostDetail(View):
                 "liked": liked
             },
         )
-#post likes
+
+
+# post likes
 class PostLike(View):
-    
+    """
+    Likes on a recipe
+    """
     def post(self, request, slug, *args, **kwargs):
+        """
+        Submits to view
+        """
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
@@ -81,21 +102,28 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-#Adding a post
+
+# Adding a post
 class AddPostView(CreateView):
+    """Adds post"""
     model = Post
     template_name = 'add_post.html'
     fields = '__all__'
 
-#editing a post
+
+# editing a post
 class UpdatePostView(UpdateView):
+    """
+    Post update view
+    """
     model = Post
     template_name = 'edit_post.html'
     fields = ('title', 'content', 'featured_image')
 
-#delete a post
+
+# delete a post
 class DeletePostView(DeleteView):
+    """Deletes recipe"""
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
-
