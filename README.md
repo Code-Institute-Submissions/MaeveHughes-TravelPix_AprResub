@@ -357,6 +357,37 @@ Register: https://www.google.com/search?q=sign+up+image&sxsrf=AOaemvKptXO-bzfGji
 ### Add Post Page 
 - The add a post page was developed on the back of the following video https://www.youtube.com/watch?v=m3efqF9abyg
 
+# Deployment <p id="deployment"></p>
+
+The site is deployed on [Heroku](https://www.heroku.com/).
+
+Steps to deploy the site on Heroku:
+
+- in code editor add requirements for Heroku to install by typing the following commands into the terminal:
+  - pip3 freeze > requirements.txt
+
+- create a Procfile in the same directory as manage.py and paste in the following:
+  - web: gunicorn travelpix.wsgi
+
+- in settings.py add Heroku to allowed hosts
+  
+- commit and push changes
+
+- log in to Heroku or make an account
+- click create a new app in the top right corner
+- name your app and choose the region you live in
+- in the resources tab of your app dashboard add the Postgres database resource
+- in the settings tab click reveal config vars and add the following
+  - CLOUDINARY_URL - get from [cloudinary](https://cloudinary.com/)
+  - DATABASE_URL (added automatically)
+  - SECRET_KEY - can be anything
+
+- go to the deploy tab and choose GitHub as deploy method
+- search for the repo and connect
+- click deploy branch
+- if the build fails in the top right corner click the 'more' button and check logs to get an indication of the problem
+- Click the view app button to see the app
+
 ## Media
 - Travel Post information images were taken from google:
 1. https://www.google.com/search?q=ireland+travel&tbm=isch&ved=2ahUKEwjUuo6m68P1AhXXOMAKHUr9DqsQ2-cCegQIABAA&oq=ireland+travel&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQ6BwgjEO8DECc6BggAEAgQHjoHCAAQsQMQQzoICAAQgAQQsQM6BAgAEENQ8QpYxR5ghyFoAHAAeACAAT6IAeMFkgECMTWYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=TSzrYZTgJtfxgAbK-rvYCg&bih=789&biw=1440#imgrc=ZYaLkuOIMaM9PM
