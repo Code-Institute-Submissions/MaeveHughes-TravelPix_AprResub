@@ -137,6 +137,10 @@ are defined
 - User Story 6.8: As an admin user I can add, view and change a friend. 
 - User Story 6.9: As an admin user I can add, view and change social accounts. 
 
+The User Stories were tracked and managed using the kandan board on GitHub, similiar to the process on the Code Institutes I Think Therefore I Blog project:
+
+![KandanBoard](documentation/kandanboard.png)
+
 ## Skeleton
 ### Wireframes
 - Wireframes for the website were developed in moqups.com and are linked below for Desktop and Mobile devices.
