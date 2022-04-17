@@ -15,10 +15,8 @@
                     <h2> Edit Post <i class="far fa-edit"></i> </h2>
                     <hr>
                     <form method="Post">
-                    <table class="offset-md-1">
                         {% csrf_token %}
                         {{form.as_table}}
-                    </table>
                     <br>
                     <div class="offset-md-1">
                         <button class="btn" type=submit style="margin-right:20px">Update</button> 
