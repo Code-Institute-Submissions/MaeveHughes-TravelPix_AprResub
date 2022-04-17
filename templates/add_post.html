@@ -16,15 +16,15 @@
                         <table class="offset-md-1">
                             <div class="fieldWrapper">
                                 <h4>Title:</h4>
-                                {{ form.title }}
+                                {{ form.title.as_table}}
                             </div>
                             <div class="fieldWrapper">
                                 <h4>Content:</h4>
-                                {{ form.content }}
+                                {{ form.content.as_table }}
                             </div>
                             <div class="fieldWrapper">
                                 <h4>Upload Image:</h4>
-                                {{ form.featured_image }}
+                                {{ form.featured_image.as_table }}
                             </div>
                         </table>
                     <br>
