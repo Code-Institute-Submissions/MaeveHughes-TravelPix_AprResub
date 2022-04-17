@@ -108,12 +108,7 @@ class AddPostView(CreateView):
     """Adds post"""
     model = Post
     template_name = 'add_post.html'
-    success_message = 'Post Successfully Added'
-    fields = ('title', 'content', 'featured_image')
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
+    fields = '__all__'
 
 
 # editing a post
