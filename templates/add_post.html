@@ -16,22 +16,22 @@
                         <table class="offset-md-1">
                             <div class="fieldWrapper">
                                 <h4>Title:</h4>
-                                {{ form.as_table.title }}
+                                {{ form.title }}
                             </div>
                             <div class="fieldWrapper">
                                 <h4>Content:</h4>
-                                {{ form.as_table.content }}
+                                {{ form.content }}
                             </div>
                             <div class="fieldWrapper">
                                 <h4>Upload Image:</h4>
-                                {{ form.as_table.featured_image }}
+                                {{ form.featured_image }}
+                            </div>
+                            <br>
+                            <div class="offset-md-1">
+                                <button class="btn" style="margin-right:20px">Post</button> 
+                                <a href="{% url 'home' %}" class="btn btn-">Cancel</a>
                             </div>
                         </table>
-                    <br>
-                    <div class="offset-md-1">
-                        <button class="btn" style="margin-right:20px">Post</button> 
-                        <a href="{% url 'home' %}" class="btn btn-">Cancel</a>
-                    </div>
                     </form>
                 </div>
             </div>
