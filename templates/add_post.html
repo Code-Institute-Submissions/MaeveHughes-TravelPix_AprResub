@@ -14,18 +14,17 @@
                     <form method="Post">
                         {% csrf_token %}
                         <table class="offset-md-1">
-                            {{ form.as_table }}
                             <div class="fieldWrapper">
                                 <h4>Title:</h4>
-                                {{ form.title }}
+                                {{ form.as_table.title }}
                             </div>
                             <div class="fieldWrapper">
                                 <h4>Content:</h4>
-                                {{ form.content }}
+                                {{ form.as_table.content }}
                             </div>
                             <div class="fieldWrapper">
                                 <h4>Upload Image:</h4>
-                                {{ form.featured_image }}
+                                {{ form.as_table.featured_image }}
                             </div>
                         </table>
                     <br>
