@@ -14,19 +14,17 @@
                 <div class="card-title text-center mt-3">
                     <h2> Edit Post <i class="far fa-edit"></i> </h2>
                     <hr>
-                    <div>
-                        <div class="offset-md-1">
-                            <form method="Post">
-                                {% csrf_token %}
-                                {{form.as_table}}
-                        </div>
-                        <br>
-                        <div class="offset-md-1">
-                            <button class="btn" type=submit style="margin-right:20px">Update</button> 
-                            <a href="{% url 'home' %}" class="btn btn-">Cancel</a>
-                        </div>
-                            </form>
+                    <table class="offset-md-1">
+                    <form method="Post">
+                        {% csrf_token %}
+                        {{form.as_table}}
+                    </table>
+                    <br>
+                    <div class="offset-md-1">
+                        <button class="btn" type=submit style="margin-right:20px">Update</button> 
+                        <a href="{% url 'home' %}" class="btn btn-">Cancel</a>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
