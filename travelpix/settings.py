@@ -112,7 +112,7 @@ WSGI_APPLICATION = "travelpix.wsgi.application"
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(os.environ.get("HEROKU_POSTGRESQL_OLIVE_URL"))
 }
 
 
