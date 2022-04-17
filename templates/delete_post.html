@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Travel|Pix - Delete Post{% endblock %}
 {% block content %}
+{% load static %}
 <!--- Only users who are logged and created a post can delete a post-->
 {% if user.is_authenticated %}
 {% if user.id == post.author.id %}

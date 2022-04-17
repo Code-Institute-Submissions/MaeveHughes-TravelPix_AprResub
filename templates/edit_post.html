@@ -3,6 +3,7 @@
 {% cloudinary photo.image format="jpg" width=120 height=80 crop="fill" %}
 {% block title %}Travel|Pix - Edit Post{% endblock %}
 {% block content %}
+{% load static %}
 <!--- Only users who are logged and created a post can edit a post-->
 {% if user.is_authenticated %}
 {% if user.id == post.author.id %}

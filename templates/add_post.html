@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Travel|Pix - Add Post{% endblock %}
 {% block content %}
+{% load static %}
 <!--- Only users who are logged can create a post-->
 {% if user.is_authenticated %}
 <div class="container">
