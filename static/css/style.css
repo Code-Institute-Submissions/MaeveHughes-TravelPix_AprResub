@@ -39,6 +39,10 @@ body {
     border-radius: 50%;
 }
 
+.image-width {
+    width: 100%;
+}
+
 /* Base html */
 .menu-items {
     color: peachpuff;
