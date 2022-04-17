@@ -11,8 +11,6 @@
                 <div class="card-title text-center mt-3">
                     <h2> Add Post <i class="fas fa-camera-retro"></i> </h2>
                     <hr>
-                    {% if user.is_authenticated %}
-                    {% if user.id == post.author.id %}
                     <table class="offset-md-1"class="card-title text-center mt-3">
                         <form method="Post" enctype="multipart/form-data">
                             {% csrf_token %}
