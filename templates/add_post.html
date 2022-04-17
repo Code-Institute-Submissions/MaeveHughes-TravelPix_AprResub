@@ -11,11 +11,10 @@
                 <div class="card-title text-center mt-3">
                     <h2> Add Post <i class="fas fa-camera-retro"></i> </h2>
                     <hr>
-                    <table class="offset-md-1"class="card-title text-center mt-3">
+                    <table class="offset-md-1" class="card-title text-center mt-3">
+                        {% csrf_token %}
                         <form method="Post" enctype="multipart/form-data">
-                            {% csrf_token %}
                             {{ form.as_table }}
-                            <br>
                         </table>
                         <br>
                         <div class="offset-md-1">
@@ -23,7 +22,7 @@
                             <a href="{% url 'home' %}" class="btn btn-">Cancel</a>
                         </div>
                         <br>
-                    </form>
+                        </form>
                 </div>
             </div>
         </div>
