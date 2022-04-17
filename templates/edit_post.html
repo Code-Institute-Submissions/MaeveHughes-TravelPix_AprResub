@@ -15,7 +15,7 @@
                     <h2> Edit Post <i class="far fa-edit"></i> </h2>
                     <hr>
                     <form method="Post" class="offset-md-1">
-                        {% csrf_token | add_br %}
+                        {% csrf_token %}
                         {{ form.as_table }}
                     <br>
                     <div class="offset-md-1">
