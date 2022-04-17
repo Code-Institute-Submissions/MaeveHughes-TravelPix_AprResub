@@ -11,20 +11,17 @@
                 <div class="card-title text-center mt-3">
                     <h2> Add Post <i class="fas fa-camera-retro"></i> </h2>
                     <hr>
-                    <form method="Post" enctype="multipart/form-data">
+                    <form method="Post">
                         {% csrf_token %}
-                        <table class="offset-md-1 card-title text-center mt-3">
-                            {{ forms.title | as_crispy_field }}
-                            {{ forms.content | as_crispy_field }}
-                            {{ forms.featured_image | as_crispy_field }}
+                        <table class="offset-md-1">
+                            {{ form.as_table }}
                         </table>
-                        <br>
-                        <div class="offset-md-1">
-                            <button class="btn" style="margin-right:20px">Post</button> 
-                            <a href="{% url 'home' %}" class="btn btn-">Cancel</a>
-                        </div>
-                        <br>
-                        </form>
+                    <br>
+                    <div class="offset-md-1">
+                        <button class="btn" type=submit style="margin-right:20px">Update</button> 
+                        <a href="{% url 'home' %}" class="btn btn-">Cancel</a>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>
