@@ -143,6 +143,6 @@ body {
 }
 /* Making burger menu visible on the blue background */
 @media (max-width:629px) {
-.navbar-collapse {
+.burger {
     color:peachpuff;
 }
