@@ -108,7 +108,7 @@ class AddPostView(CreateView):
     """Adds post"""
     model = Post
     template_name = 'add_post.html'
-    fields = '__all__'
+    fields = ('title', 'content', 'featured_image')
 
 
 # editing a post
