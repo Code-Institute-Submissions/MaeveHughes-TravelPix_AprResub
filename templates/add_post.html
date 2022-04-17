@@ -14,9 +14,9 @@
                     <form method="Post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <table class="offset-md-1 card-title text-center mt-3">
-                            {{ forms.title | as_table }}
-                            {{ forms.content | as_table }}
-                            {{ forms.featured_image | as_table }}
+                            {{ forms.title | as_crispy_field }}
+                            {{ forms.content | as_crispy_field }}
+                            {{ forms.featured_image | as_crispy_field }}
                         </table>
                         <br>
                         <div class="offset-md-1">
