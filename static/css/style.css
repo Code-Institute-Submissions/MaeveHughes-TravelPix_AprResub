@@ -18,17 +18,8 @@ body {
 
 .sign-up-image {
     border-radius: 50%;
-}
-
-.flying-image {
-    border-radius: 50%;
-}
-
-.crying-image {
-    border-radius: 50%;
-}
-.sign-up-image {
-    border-radius: 50%;
+    width: 150px;
+    height: 150px;
 }
 
 .flying-image {
