@@ -112,8 +112,8 @@ class AddPostView(CreateView):
     fields = ('title', 'content', 'featured_image')
 
     def form_valid(self, form):
-       form.instance.author = self.request.user
-    return super().form_valid(form)
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 # editing a post
