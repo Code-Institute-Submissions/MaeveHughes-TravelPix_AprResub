@@ -14,7 +14,9 @@
                     <form method="Post">
                         {% csrf_token %}
                         <table class="offset-md-1">
-                            {{ form.as_table }}
+                            {{ form.title }}
+                            {{ form.content }}
+                            {{ form.featured_image }}
                         </table>
                     <br>
                     <div class="offset-md-1">
