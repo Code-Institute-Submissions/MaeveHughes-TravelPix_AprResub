@@ -15,13 +15,16 @@
                         {% csrf_token %}
                         <table class="offset-md-1">
                             <div class="fieldWrapper">
-                                <label for="{{ form.title }}">Title:</label>
+                                <h4>Title:</h4>
+                                {{ form.title }}
                             </div>
                             <div class="fieldWrapper">
-                                <label for="{{ form.content }}">Content:</label>
+                                <h4>Content:</h4>
+                                {{ form.content }}
                             </div>
                             <div class="fieldWrapper">
-                                <label for="{{ form.featured_image }}">Upload Image:</label>
+                                <h4>Upload Image:</h4>
+                                {{ form.featured_image }}
                             </div>
                         </table>
                     <br>
