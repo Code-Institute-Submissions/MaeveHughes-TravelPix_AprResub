@@ -1,6 +1,8 @@
 """Views"""
 
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404
+)
 from django.views import generic, View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -112,6 +114,13 @@ class AddPostView(CreateView):
     model = Post
     template_name = 'add_post.html'
     fields = ('title', 'content', 'featured_image')
+
+    if request.method == "POST":
+        form = PostForm(request.POST)
+    if form.is_valid():
+        new_item = form.save(commit=False)
+        new_item.author = request.user
+        new_item.save()
 
 
 # editing a post
