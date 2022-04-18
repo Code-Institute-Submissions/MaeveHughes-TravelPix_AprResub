@@ -2,6 +2,7 @@
 
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -104,6 +105,7 @@ class PostLike(View):
 
 
 # Adding a post
+@login_required
 class AddPostView(CreateView):
     """Adds post"""
     model = Post
