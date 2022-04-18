@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Travel|Pix - Add Post{% endblock %}
 {% block content %}
-{% load static %}
 <!--- Only users who are logged can create a post-->
 {% if user.is_authenticated %}
 <div class="container">
@@ -11,16 +10,16 @@
                 <div class="card-title text-center mt-3">
                     <h2> Add Post <i class="fas fa-camera-retro"></i> </h2>
                     <hr>
-                    <form method="Post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <table class="offset-md-1"class="card-title text-center mt-3">
-                        {{ form.as_table }}
-                        <br>
+                    <table class="offset-md-1"class="card-title text-center mt-3">
+                        <form method="Post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_table }}
+                            <br>
                         </table>
                         <br>
                         <div class="offset-md-1">
                             <button class="btn" style="margin-right:20px">Post</button> 
-                            <a href="{% url 'home' %}" class="btn">Cancel</a>
+                            <a href="{% url 'home' %}" class="btn btn-">Cancel</a>
                         </div>
                         <br>
                     </form>
@@ -35,4 +34,3 @@
 <strong>Uh oh! Something whent wrong..</strong>
 {% endif %}
 {% endblock %}
-
