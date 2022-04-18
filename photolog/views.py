@@ -110,6 +110,10 @@ class AddPostView(CreateView):
     template_name = 'add_post.html'
     fields = ('title', 'content', 'featured_image')
 
+    def form_valid(self, form):
+        form.instance.user= self.request.user
+        return super(CreatePostView, self).form_valid(form
+
 
 # editing a post
 class UpdatePostView(UpdateView):
