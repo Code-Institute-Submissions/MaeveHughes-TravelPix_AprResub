@@ -108,8 +108,8 @@ class PostLike(View):
 
 
 # Adding a post
-@method_decorator(login_required, name='dispatch')
-class AddPostView(CreateView):
+@login_required
+def AddPostView(CreateView):
     """Adds post"""
     model = Post
     template_name = 'add_post.html'
