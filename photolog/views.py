@@ -9,7 +9,6 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
-from flask import Flask, request
 from .forms import CommentForm
 from .models import Post
 
@@ -115,13 +114,6 @@ class AddPostView(CreateView):
     model = Post
     template_name = 'add_post.html'
     fields = ('title', 'content', 'featured_image')
-
-    if request.method == "POST":
-        form = PostForm(request.POST)
-    if form.is_valid():
-        new_item = form.save(commit=False)
-        new_item.author = request.user
-        new_item.save()
 
 
 # editing a post
