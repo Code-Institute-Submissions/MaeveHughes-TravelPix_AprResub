@@ -1,36 +1,31 @@
 {% extends "base.html" %}
-{% load static %}
 
 {% load i18n %}
-{% load account socialaccount %}
 
-{% block title %}Travel|Pix - Sign up{% endblock %}
-<!--- Register Form -->
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-lg-5 m-auto">
-      <div class="card mt-5 bg-light">
-        <div class="card-title text-center mt-3">
-          <img src="{% static 'images/sign-up.jpeg' %}" alt="Sign up image" class="sign-up-image">
-          <hr>
-          <h2>{% trans "Sign up to TravelPix:" %}</h2>
-          <hr>
-          <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-        </div>
-        <form class="signup text-center" id="signup_form" method="post" action="{% url 'account_signup' %}">
-          {% csrf_token %}
-          {{ form.as_p }}
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
-          <button class="primaryAction buy-now-button btn" type="submit">{% trans "Sign Up" %}</button>
-          <hr>
-        </form>
-      </div>
+    <div class="col-md-8 mt-3 offset-md-2">
+      <h3>{% trans "Sign Up" %}</h3>
+
+      <p>{% blocktrans %}Welcome back to the code|star blog. Do you already have an account? Then please <a class="link"
+          href="{{ login_url }}">sign in</a> instead.{% endblocktrans %}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 mt-3 offset-md-2">
+      <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class="btn btn-signup right" type="submit">{% trans "Sign Up" %} &raquo;</button>
+      </form>
     </div>
   </div>
 </div>
-<br>
 
 {% endblock %}
