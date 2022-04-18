@@ -9,6 +9,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from flask import Flask, Responsefrom, request
 from .forms import CommentForm
 from .models import Post
 
