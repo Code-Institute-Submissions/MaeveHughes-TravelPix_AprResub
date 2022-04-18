@@ -106,7 +106,7 @@ class PostLike(View):
 
 
 # Adding a post
-@method_decorator(login_required)
+@method_decorator(login_required, name='dispatch')
 class AddPostView(CreateView):
     """Adds post"""
     model = Post
