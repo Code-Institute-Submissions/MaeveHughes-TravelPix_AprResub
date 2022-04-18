@@ -174,5 +174,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # SMTP Configuration
 
-
-#
+    
+   EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+   ACCOUNT_EMAIL_VERIFICATION = "none"
+   
