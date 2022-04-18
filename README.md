@@ -7,7 +7,7 @@
 Home Page Image - [View]( https://github.com/MaeveHughes/TravelPix/blob/main/media/Screenshot%202022-01-19%20at%2016.09.37.png)
 
 # Project Overview
-- This project is a website that allows users to add/edit/delete travel images  for submission as milestone project 4 as part of the Code Institute - Diploma in Software Development (Full stack) course.
+- This project is a website that allows users to add/edit/delete travel images for submission as milestone project 4 as part of the Code Institute - Diploma in Software Development (Full stack) course.
 - The website is deployed using Heroku pages.
 - The repository on GitHub that contains the website source code, media and assets.
 - The website was built with a responsive look and feel for desktop, tablet and mobile devices.
