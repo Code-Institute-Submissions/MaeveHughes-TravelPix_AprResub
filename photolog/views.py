@@ -109,7 +109,7 @@ class PostLike(View):
 
 # Adding a post
 @login_required
-def AddPostView(CreateView):
+def AddPostView(response):
     """Adds post"""
     model = Post
     template_name = 'add_post.html'
