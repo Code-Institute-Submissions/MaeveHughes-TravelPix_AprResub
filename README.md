@@ -57,7 +57,7 @@ I have structured the website with clear, concise structure, information and pur
 - The model contains the following fields: image, slug, bio
 Friends.
 
-#####  Friend Model
+##### Friend Model
 - The Friend model is part of the Django allauth library.
 - The model allows users to follow another user.
 
