@@ -71,6 +71,15 @@ class Post(models.Model):
         """Returns number of likes"""
         return self.likes.count()
 
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the slug
+        if it hasn't been set already.
+        """
+        if not self.slug:
+            self.slug = self.title.replace(" ", "-").lower()
+        super().save(*args, **kwargs)
+
 
 class Comment(models.Model):
     """ Model for commenting in posts detail view """

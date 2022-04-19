@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .forms import CommentForm
 from .models import Post
@@ -104,11 +105,15 @@ class PostLike(View):
 
 
 # Adding a post
-class AddPostView(CreateView):
+class AddPostView(LoginRequiredMixin, CreateView):
     """Adds post"""
     model = Post
     template_name = 'add_post.html'
-    fields = '__all__'
+    fields = ('title', 'content', 'featured_image')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 # editing a post
