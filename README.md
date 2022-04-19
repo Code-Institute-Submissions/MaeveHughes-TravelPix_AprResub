@@ -1,6 +1,6 @@
 <h1>Travel|Pix</h1>
 
-<p> <strong> A social media site used for interacting with people who share a common interest in looking at images from around the world </strong> </p>
+<p> <strong> A social media site used for interacting with people who share a common interest in looking at images from around the world. </strong> </p>
 
 [View the live project here.](https://travelpix.herokuapp.com/)
 
