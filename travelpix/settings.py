@@ -175,6 +175,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # SMTP Configuration
 
 
-"DEV" in os.environ:
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-DEFAULT_FROM_EMAIL = "photopix@example.com"
+if "DEV" in os.environ:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+    DEFAULT_FROM_EMAIL = "photopix@example.com"
