@@ -6,7 +6,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from .forms import CommentForm
-from .models import Post
+from .models import Post, AddPost
 
 
 # pylint: disable=no-member
@@ -106,7 +106,7 @@ class PostLike(View):
 # Adding a post
 class AddPostView(CreateView):
     """Adds post"""
-    model = Post
+    model = AddPost
     template_name = 'add_post.html'
     fields = '__all__'
 
