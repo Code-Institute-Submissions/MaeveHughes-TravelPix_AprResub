@@ -87,16 +87,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
-
-
-class AddPost(models.Model):
-    """
-    Model for adding posts in the feed
-    """
-    title = models.CharField(max_length=250)
-    featured_image = models.ImageField(upload_to="images/")
-    content = RichTextField(blank=True, null=True)
-
-    def get_absolute_url(self):
-        """Sets absolute URL"""
-        return reverse('home')
